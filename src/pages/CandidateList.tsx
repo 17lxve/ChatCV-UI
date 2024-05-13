@@ -1,13 +1,11 @@
-import { CandidateListComponent, MainBox, ViewBox } from "../components";
+import { CandidateListComponent, MainBox } from "../components";
 
-function CandidateListPage(){
-    return (
-        <MainBox>
-            <ViewBox>
-                <CandidateListComponent />
-            </ViewBox>
-        </MainBox>
-    )
+function CandidateListPage() {
+  return (
+    <MainBox>
+      <CandidateListComponent />
+    </MainBox>
+  );
 }
 
 export default CandidateListPage;

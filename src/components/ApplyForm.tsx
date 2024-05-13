@@ -2,22 +2,19 @@ import * as Form from "@radix-ui/react-form";
 import ViewBox from "./ViewBox";
 import { FormEvent, useState } from "react";
 
-function ApplyForm(){
+function ApplyForm() {
   const [accepted, accept] = useState(false);
-    return (
-        <ViewBox>
+  return (
+    <ViewBox>
       <div>
         <div>
-          <h2 className="form-title">
-            Nouvelle Candidature
-          </h2>
+          <h2 className="form-title">Nouvelle Candidature</h2>
           <Form.Root
             onSubmit={(e: FormEvent<HTMLFormElement>) => {
-              console.log("submit")
+              console.log("submit");
               e.preventDefault();
             }}
           >
-
             {/* Nom de famille */}
 
             <Form.Field name="ln">
@@ -30,15 +27,13 @@ function ApplyForm(){
 
                 {/* Missing Value Message */}
                 <Form.Message match="valueMissing">
-                {"\t Veuillez entrer votre nom de famille!"}
+                  {"\t Veuillez entrer votre nom de famille!"}
                 </Form.Message>
 
                 {/* Incorrect Value Message */}
                 <Form.Message match="typeMismatch">
-                  
                   Format incorrect, veuillez reessayer.
                 </Form.Message>
-
               </div>
               {/* Block Controller */}
               <Form.Control asChild>
@@ -66,16 +61,13 @@ function ApplyForm(){
 
                 {/* Missing Value Message */}
                 <Form.Message match="valueMissing">
-                  
                   {"\t Veuillez entrer votre prénom!"}
                 </Form.Message>
 
                 {/* Incorrect Value Message */}
                 <Form.Message match="typeMismatch">
-                  
                   Format incorrect, veuillez reessayer.
                 </Form.Message>
-
               </div>
               {/* Block Controller */}
               <Form.Control asChild>
@@ -103,16 +95,13 @@ function ApplyForm(){
 
                 {/* Missing Value Message */}
                 <Form.Message match="valueMissing">
-                  
-                {"\t Veuillez entrer votre num&ro de téléphone!"}
+                  {"\t Veuillez entrer votre num&ro de téléphone!"}
                 </Form.Message>
 
                 {/* Incorrect Value Message */}
                 <Form.Message match="typeMismatch">
-                  
                   Format incorrect, veuillez reessayer.
                 </Form.Message>
-
               </div>
               {/* Block Controller */}
               <Form.Control asChild>
@@ -141,16 +130,13 @@ function ApplyForm(){
 
                 {/* Missing Value Message */}
                 <Form.Message match="valueMissing">
-                  
-                {"\t Veuillez entrer votre adresse e-mail!"}
+                  {"\t Veuillez entrer votre adresse e-mail!"}
                 </Form.Message>
 
                 {/* Incorrect Value Message */}
                 <Form.Message match="typeMismatch">
-                  
                   Format incorrect, veuillez reessayer.
                 </Form.Message>
-
               </div>
               {/* Block Controller */}
               <Form.Control asChild>
@@ -166,9 +152,9 @@ function ApplyForm(){
               </Form.Control>
             </Form.Field>
 
-              {/* Document Submission */}
+            {/* Document Submission */}
 
-              <Form.Field name="doc">
+            <Form.Field name="doc">
               {/* Block Info */}
               <div>
                 {/* Block Name */}
@@ -178,16 +164,13 @@ function ApplyForm(){
 
                 {/* Missing Value Message */}
                 <Form.Message match="valueMissing">
-                  
-                {"\t Veuillez soumettre votre CV!"}
+                  {"\t Veuillez soumettre votre CV!"}
                 </Form.Message>
 
                 {/* Incorrect Value Message */}
                 <Form.Message match="typeMismatch">
-                  
                   Format incorrect, veuillez reessayer.
                 </Form.Message>
-
               </div>
               {/* Block Controller */}
               <Form.Control asChild>
@@ -205,19 +188,27 @@ function ApplyForm(){
               <Form.Label htmlFor="doci">
                 <div className="file-label">CV</div>
               </Form.Label>
-
             </Form.Field>
 
             <Form.Field name="cgu">
               {/* Block Controller */}
               <div className="checkbox-wrapper-25">
-              <Form.Control asChild>
-                <input name="acc" id="acc" type="checkbox" checked={accepted} onChange={() => accept(!accepted)} />
-              </Form.Control>
+                <Form.Control asChild>
+                  <input
+                    name="acc"
+                    id="acc"
+                    type="checkbox"
+                    checked={accepted}
+                    onChange={() => accept(!accepted)}
+                  />
+                </Form.Control>
               </div>
               <Form.Label htmlFor="acc" className="cgu-section">
-                <div className="nike">J’ai lu et accepté les conditions générales d’utilisation de la plateforme GS2E.</div>
-              </Form.Label>              
+                <div className="nike">
+                  J’ai lu et accepté les conditions générales d’utilisation de
+                  la plateforme GS2E.
+                </div>
+              </Form.Label>
             </Form.Field>
 
             <div>
@@ -226,7 +217,7 @@ function ApplyForm(){
           </Form.Root>
         </div>
       </div>
-        </ViewBox>
-    )
+    </ViewBox>
+  );
 }
 export default ApplyForm;

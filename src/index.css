@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/icon?family=Outfit');
-@import url('https://fonts.googleapis.com/icon?family=Inika');
-@import url('https://fonts.googleapis.com/icon?family=Poppins');
-@import url('https://fonts.googleapis.com/icon?family=Monoton');
+@import url("https://fonts.googleapis.com/icon?family=Outfit");
+@import url("https://fonts.googleapis.com/icon?family=Inika");
+@import url("https://fonts.googleapis.com/icon?family=Poppins");
+@import url("https://fonts.googleapis.com/icon?family=Monoton");
 
 :root {
   font-family: Poppins;
@@ -17,12 +17,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --bg-color: #D9D9D9;
-  --fg-color: #FFFFFF;
+  --bg-color: #d9d9d9;
+  --fg-color: #ffffff;
   --text-color: #000000;
-  --accent-color1: #DE6308;
-  --accent-color2: #B0ECCD;
-
+  --accent-color1: #de6308;
+  --accent-color2: #b0eccd;
 }
 #root {
   margin: 0 auto;
@@ -46,7 +45,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
 } */
-
 
 /* 
 @media (prefers-color-scheme: light) {
