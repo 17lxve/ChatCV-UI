@@ -22,6 +22,7 @@
   --text-color: #000000;
   --accent-color1: #de6308;
   --accent-color2: #b0eccd;
+  --special-color: #bcbcbc;
 }
 #root {
   margin: 0 auto;

@@ -35,10 +35,20 @@
   min-height: fit-content;
 }
 
-@media screen and (max-width: 1200px) {
-  .view-box {
-    aspect-ratio: 1/2;
-  }
+.view-box-chat {
+  background-color: var(--fg-color);
+  width: 42%;
+  margin: 1vh auto;
+  min-width: 300px;
+  border-radius: 30px;
+  min-height: 15em;
+  aspect-ratio: 1/1;
+  min-height: fit-content;
+  position: relative;
+}
+
+.view-box-chat div {
+  width: 100%;
 }
 
 .form-title {
@@ -127,4 +137,57 @@
   text-align: left;
   padding-left: 10%;
   font-size: large;
+}
+
+.chat-bar {
+  width: 98%;
+  aspect-ratio: 10/1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: var(--accent-color1);
+  outline: none;
+  border: none;
+  color: var(--text-color);
+  font-size: large;
+  padding-left: 10px;
+}
+
+.message-bot, .message-user {
+  width: fit-content;
+  max-width: 70%;
+  border-radius: 15px;
+}
+
+.message-bot {
+  background-color: var(--special-color);
+  margin-left: 5%;
+  margin-right: 25%;
+  text-align: left;
+  padding-left: 5%;
+}
+
+.message-user {
+  background-color: var(--accent-color2);
+  margin-left: 25%;
+  margin-right: 5%;
+  text-align: right;
+  padding-right: 1%;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .view-box {
+    aspect-ratio: 1/2;
+  }
+  
+  .view-box-chat {
+    margin: 5% auto;
+  }
+
+  .chat-bar {
+    width: 96%;
+  }
 }
