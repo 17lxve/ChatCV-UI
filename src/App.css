@@ -41,10 +41,10 @@
   margin: 1vh auto;
   min-width: 300px;
   border-radius: 30px;
-  min-height: 15em;
   aspect-ratio: 1/1;
   min-height: fit-content;
-  position: relative;
+  display: grid;
+  grid-template-rows: 8% auto 10%;
 }
 
 .view-box-chat div {
@@ -142,20 +142,22 @@
 .chat-bar {
   width: 98%;
   aspect-ratio: 10/1;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: var(--accent-color1);
+  border-radius: 5px;
+  background-color: var(--special-color);
   outline: none;
   border: none;
   color: var(--text-color);
   font-size: large;
-  padding-left: 10px;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
-.message-bot, .message-user {
+.chat-bar.loading {
+  background-color: red;
+}
+
+.message-bot,
+.message-user {
   width: fit-content;
   max-width: 70%;
   border-radius: 15px;
@@ -177,17 +179,60 @@
   padding-right: 1%;
 }
 
+.view-box-chat {
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.view-box-chat::-webkit-scrollbar {
+  display: none;
+}
+
+.upsert {
+  background-color: var(--accent-color1);
+  color: var(--text-color);
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  margin-top: 5%;
+  padding: 2%;
+  font-weight: bold;
+  font-size: large;
+  transition: 1s all ease-in-out;
+}
+
+.upsert:hover {
+  filter: blur(0.5px);
+  /* box-shadow: -10px -10px 10px black; */
+  animation: upsertion 5s linear infinite;
+}
 
 @media screen and (max-width: 1200px) {
   .view-box {
     aspect-ratio: 1/2;
   }
-  
+
   .view-box-chat {
     margin: 5% auto;
   }
 
   .chat-bar {
     width: 96%;
+  }
+}
+
+@keyframes upsertion {
+  0%,
+  100% {
+    box-shadow: 10px 10px 10px var(--accent-color1);
+  }
+  25% {
+    box-shadow: 10px -10px 10px var(--special-color2);
+  }
+  50% {
+    box-shadow: -10px -10px 10px var(--accent-color1);
+  }
+  75% {
+    box-shadow: -10px 10px 10px var(--special-color2);
   }
 }

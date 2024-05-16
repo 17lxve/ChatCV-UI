@@ -1,14 +1,18 @@
+import { API } from "./api/url";
+
 function CandidateRow({
   candidate,
 }: {
-  candidate: { fn: string; ln: string };
+  candidate: { prenom: string; nom: string; cv: string };
 }) {
   return (
     <div className="candidate-row">
       <p className="text-left">
-        {candidate.fn} {candidate.ln.toUpperCase()}
+        {candidate.prenom} {candidate.nom.toUpperCase()}
       </p>
-      <button>CV</button>
+      <button onClick={() => window.open(API + "candidate/cv/" + candidate.cv)}>
+        CV
+      </button>
     </div>
   );
 }

@@ -1,17 +1,25 @@
+import axios from "axios";
 import { CandidateRow } from "./index";
 import ViewBox from "./ViewBox";
+import { API } from "./api/url";
+import { useEffect, useState } from "react";
 
 function CandidateListComponent() {
-  const candidates = [
-    { ln: "KOUADIO-BHEGNIN", fn: "Timmy" },
-    { ln: "Teki", fn: "Pascaline" },
-    { ln: "Gnepo", fn: "Alain" },
-    { ln: "Lognon", fn: "Jonathan" },
-    { ln: "Yesso", fn: "Chris" },
-    { ln: "Escobar", fn: "Pablo" },
-    { ln: "Jobs", fn: "Steve" },
-    { ln: "Post", fn: "Austin Richard" },
-  ];
+  const [candidates, setList] = useState([]);
+  useEffect(() => {
+    axios.get(API + "candidate").then((data) => setList(data.data));
+  }, []);
+
+  // const candidates = [
+  //   { nom: "KOUADIO-BHEGNIN", prenom: "Timmy" },
+  //   { nom: "Teki", prenom: "Pascaline" },
+  //   { nom: "Gnepo", prenom: "Alain" },
+  //   { nom: "Lognon", prenom: "Jonathan" },
+  //   { nom: "Yesso", prenom: "Chris" },
+  //   { nom: "Escobar", prenom: "Pablo" },
+  //   { nom: "Jobs", prenom: "Steve" },
+  //   { nom: "Post", prenom: "Austin Richard" },
+  // ];
   return (
     <ViewBox>
       <div>

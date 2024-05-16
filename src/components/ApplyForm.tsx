@@ -1,9 +1,42 @@
 import * as Form from "@radix-ui/react-form";
 import ViewBox from "./ViewBox";
 import { FormEvent, useState } from "react";
+import { API } from "./api/url";
+import axios from "axios";
 
 function ApplyForm() {
   const [accepted, accept] = useState(false);
+  const [CV, setCV] = useState("CV");
+  const submit = (e: React.FormEvent<HTMLFormElement>) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    document.getElementById("send-button")!.disabled = true;
+    document.getElementById("send-button")!.innerHTML = "En cours...";
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+    console.log("FORM DATA:", data);
+    // console.log("File", data.doci.name)
+    axios
+      .post(API + "candidate/new", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .catch((e) => console.error(e.message))
+      .then(() => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        document.getElementById("send-button")!.disabled = false;
+        document.getElementById("send-button")!.innerHTML = "Envoyer";
+      });
+    e.preventDefault();
+  };
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  const handleFileChange = (event: React.FormEvent<HTMLInputElement>) => {
+    // @ts-ignore
+    setCV(event.target.files[0].name);
+  };
+
   return (
     <ViewBox>
       <div>
@@ -11,7 +44,7 @@ function ApplyForm() {
           <h2 className="form-title">Nouvelle Candidature</h2>
           <Form.Root
             onSubmit={(e: FormEvent<HTMLFormElement>) => {
-              console.log("submit");
+              submit(e);
               e.preventDefault();
             }}
           >
@@ -173,7 +206,7 @@ function ApplyForm() {
                 </Form.Message>
               </div>
               {/* Block Controller */}
-              <Form.Control asChild>
+              <Form.Control onChange={(e) => handleFileChange(e)} asChild>
                 <input
                   type="file"
                   className="form-input"
@@ -181,12 +214,12 @@ function ApplyForm() {
                   id="doci"
                   name="doci"
                   placeholder={"📰 CV"}
-                  accept=".pdf,.docx"
+                  accept=".pdf, .docx"
                   required
                 />
               </Form.Control>
               <Form.Label htmlFor="doci">
-                <div className="file-label">CV</div>
+                <div className="file-label">{CV}</div>
               </Form.Label>
             </Form.Field>
 
@@ -212,7 +245,9 @@ function ApplyForm() {
             </Form.Field>
 
             <div>
-              <button disabled={!accepted}>Envoyer</button>
+              <button id="send-button" disabled={!accepted}>
+                Envoyer
+              </button>
             </div>
           </Form.Root>
         </div>
