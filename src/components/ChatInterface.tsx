@@ -67,7 +67,7 @@ function ChatInterface() {
           onKeyUp={
             //@ts-ignore
             (e) =>
-              e.key === "Enter"
+              e.key === "Enter" //@ts-ignore
                 ? push({ content: e.target.value, sender: "user" })
                 : ""
           }
