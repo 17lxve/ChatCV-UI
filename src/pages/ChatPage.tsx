@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import axios from "axios";
 import { ChatInterface, MainBox } from "../components";
-import { API } from "../components/api/url";
+import { API } from "../api/url";
 
 function ChatPage() {
   const upsert = () => {

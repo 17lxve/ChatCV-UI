@@ -1,4 +1,4 @@
-import { API } from "./api/url";
+import { API } from "../api/url";
 
 function CandidateRow({
   candidate,

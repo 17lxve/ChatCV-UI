@@ -1,7 +1,7 @@
 import * as Form from "@radix-ui/react-form";
 import ViewBox from "./ViewBox";
 import { FormEvent, useState } from "react";
-import { API } from "./api/url";
+import { API } from "../api/url";
 import axios from "axios";
 
 function ApplyForm() {
@@ -31,8 +31,8 @@ function ApplyForm() {
     e.preventDefault();
   };
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   const handleFileChange = (event: React.FormEvent<HTMLInputElement>) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     setCV(event.target.files[0].name);
   };

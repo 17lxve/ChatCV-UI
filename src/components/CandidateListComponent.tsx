@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CandidateRow } from "./index";
 import ViewBox from "./ViewBox";
-import { API } from "./api/url";
+import { API } from "../api/url";
 import { useEffect, useState } from "react";
 
 function CandidateListComponent() {

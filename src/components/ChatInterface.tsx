@@ -2,7 +2,7 @@
 import { useState } from "react";
 import ViewBoxChat from "./ViewBoxChat";
 import axios from "axios";
-import { API } from "./api/url";
+import { API } from "../api/url";
 
 function ChatInterface() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
