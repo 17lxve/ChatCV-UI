@@ -4,7 +4,7 @@ function NavBar() {
   const links = [
     { route: "/candidate-list", name: "Liste des candidats" },
     { route: "/apply", name: "Nouvelle Candidature" },
-    { route: "https://github.com", name: "Contact" },
+    { route: "https://github.com/17lxve", name: "Contact" },
     { route: "/chat", name: "IA" },
   ];
   return (
